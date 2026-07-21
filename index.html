@@ -2849,7 +2849,8 @@
 </blockquote>
 <h3 id="26">2.6 多线程与并发<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="synthesis/qt-cross-thread/">Qt 跨线程模式</a> — Worker-Object/invokeMethod/postEvent 三种模式 + 清理顺序</li>
+<li><a href="synthesis/qt-cross-thread/">Qt 跨线程模式</a></li>
+<li><a href="synthesis/amdahl-in-qt/">Amdahl 定律在 Qt 主线程中的实际案例</a> — GUI 主线程作为串行瓶颈时，线程数继续增加为何收益有限 — Worker-Object/invokeMethod/postEvent 三种模式 + 清理顺序</li>
 </ul>
 <h3 id="27">2.7 数据库<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -2945,6 +2946,8 @@
 <h3 id="64">6.4 性能优化<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="concepts/optimization-methodology/">性能优化方法论</a> — 自上而下分析流程、AoS vs SoA、伪共享、五大瓶颈类型</li>
+<li><a href="concepts/amdahl-law/">Amdahl 定律（阿姆达尔定律）</a> — 并行加速比的理论上限：整体性能受不可并行部分限制</li>
+<li><a href="concepts/gustafson-law/">Gustafson 定律（古斯塔夫森定律）</a> — 固定运行时间下的问题规模扩展能力：多核不只是提速，还能扩容</li>
 <li><a href="synthesis/performance-profiling/">性能剖析工具链</a> — perf 采样 + 火焰图可视化 = 从热点到调用链瓶颈的完整分析路径</li>
 </ul>
 <h3 id="65">6.5 跨平台部署<a class="headerlink" href="#65" title="Permanent link">&para;</a></h3>
