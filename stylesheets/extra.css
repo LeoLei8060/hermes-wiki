@@ -593,3 +593,34 @@ body:has(.home-dashboard) .md-content__inner {
   .md-grid { max-width: 100% !important; }
   .md-content__inner { margin-left: .8rem !important; margin-right: .8rem !important; }
 }
+/* ============================================
+   Left navigation no-wrap and wider sidebar
+   ============================================ */
+@media (min-width: 960px) {
+  .md-sidebar--primary {
+    width: 15.5rem !important;
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    width: 15.5rem !important;
+  }
+  .md-nav--primary .md-nav__link,
+  .md-nav--primary .md-nav__item .md-nav__link,
+  .md-sidebar--primary .md-nav__link {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+    max-width: 100% !important;
+    line-height: 1.45 !important;
+  }
+  .md-nav--primary .md-nav__link .md-ellipsis,
+  .md-sidebar--primary .md-nav__link .md-ellipsis {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+  }
+  .md-sidebar--primary .md-nav__item {
+    min-width: 0 !important;
+  }
+}
