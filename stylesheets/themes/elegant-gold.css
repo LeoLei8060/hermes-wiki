@@ -1,0 +1,90 @@
+/* ============================================
+   Theme 2: 暗金极简 Elegant Dark Gold
+   风格: 高端商务、极简奢华、精品文档
+   配色: 暗金 #d4a853 + 象牙白 #f0e6d3
+   适合: 企业文档、API文档、知识库
+   ============================================ */
+
+:root {
+  --gold: #d4a853;
+  --gold-light: #f0d68a;
+  --gold-dim: #8b7355;
+  --bg-deep: #0d0d0f;
+  --bg-surface: #16161a;
+  --bg-card: #1c1c22;
+  --border: #2a2a32;
+  --text: #e8e4dd;
+  --text-dim: #999088;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--bg-deep);
+  --md-default-fg-color: var(--text);
+  --md-default-fg-color--light: var(--text-dim);
+  --md-typeset-color: var(--text);
+  --md-typeset-a-color: var(--gold-light);
+  --md-accent-fg-color: var(--gold);
+  --md-primary-fg-color: #0d0d0f;
+  --md-code-bg-color: #111118;
+  --md-code-fg-color: #e0dcd5;
+}
+
+body {
+  background: var(--bg-deep) !important;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.md-header {
+  background: linear-gradient(180deg, #1a1a20 0%, #0d0d0f 100%) !important;
+  border-bottom: 1px solid rgba(212,168,83,0.12);
+}
+
+.md-header__title .md-ellipsis {
+  color: var(--gold-light) !important; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; font-size: 0.9rem;
+}
+
+.md-header__button.md-logo img {
+  border-radius: 4px; border: 1px solid rgba(212,168,83,0.3);
+  transition: all 0.3s;
+}
+.md-header__button.md-logo img:hover { border-color: var(--gold); box-shadow: 0 0 15px rgba(212,168,83,0.2); }
+
+.md-sidebar--primary {
+  background: var(--bg-surface) !important;
+  border-right: 1px solid var(--border);
+}
+
+.md-nav__title { color: var(--gold) !important; font-weight: 600; letter-spacing: 1.5px; font-size: 0.8rem; text-transform: uppercase; }
+.md-nav__link { transition: all 0.25s; border-radius: 3px; }
+.md-nav__link:hover { background: rgba(212,168,83,0.06) !important; color: var(--gold) !important; }
+.md-nav__link--active { background: rgba(212,168,83,0.1) !important; color: var(--gold) !important; border-left: 3px solid var(--gold); }
+
+h1 { color: var(--gold-light) !important; font-weight: 700 !important; letter-spacing: 1px;
+  border-bottom: 1px solid rgba(212,168,83,0.2); padding-bottom: 0.5rem; }
+h2 { color: var(--gold) !important; font-weight: 600 !important; }
+h3 { color: var(--gold-dim) !important; }
+
+code { background: rgba(212,168,83,0.07) !important; color: var(--gold-light) !important; border: 1px solid rgba(212,168,83,0.15); border-radius: 3px; }
+pre { background: #0e0e14 !important; border: 1px solid var(--border); border-radius: 6px; }
+
+.md-typeset .admonition { border-radius: 6px; border-left-width: 4px; background: var(--bg-card) !important; }
+.md-typeset .admonition.note { border-left-color: var(--gold); }
+
+.md-typeset table { border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+.md-typeset table thead { background: rgba(212,168,83,0.08); }
+.md-typeset table th { color: var(--gold) !important; font-weight: 600; border-bottom: 2px solid rgba(212,168,83,0.2) !important; }
+.md-typeset table tr:hover { background: rgba(212,168,83,0.03) !important; }
+
+.md-search__input { background: var(--bg-card) !important; border: 1px solid var(--border) !important; border-radius: 4px !important; color: var(--text) !important; }
+.md-search__input:focus { border-color: var(--gold) !important; box-shadow: 0 0 10px rgba(212,168,83,0.08) !important; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+
+blockquote { background: var(--bg-card); border-left: 3px solid var(--gold) !important; border-radius: 0 4px 4px 0; }
+.md-footer { background: var(--bg-surface) !important; border-top: 1px solid var(--border); }
+.md-header__button { color: var(--text-dim) !important; }
+.md-header__button:hover { color: var(--gold) !important; }

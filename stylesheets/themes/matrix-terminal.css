@@ -1,0 +1,102 @@
+/* ============================================
+   Theme 4: 极客终端 Matrix Terminal
+   风格: 黑客帝国、终端美学、极简硬核
+   配色: 矩阵绿 #00cc66 + 暗绿 #008844
+   适合: 安全研究、底层开发、硬核技术
+   ============================================ */
+
+:root {
+  --matrix: #00cc66;
+  --matrix-bright: #00ff7f;
+  --matrix-dim: #006633;
+  --bg-deep: #0a0a0a;
+  --bg-surface: #0f0f0f;
+  --bg-card: #141414;
+  --border: #1a3326;
+  --text: #b8d4c4;
+  --text-dim: #557766;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0a0a0a;
+  --md-default-fg-color: var(--text);
+  --md-default-fg-color--light: var(--text-dim);
+  --md-typeset-color: var(--text);
+  --md-typeset-a-color: var(--matrix-bright);
+  --md-accent-fg-color: var(--matrix);
+  --md-primary-fg-color: #0a0a0a;
+  --md-code-bg-color: #0d0d0d;
+  --md-code-fg-color: #c0e0c8;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+body {
+  background: #0a0a0a !important;
+  font-family: "JetBrains Mono", "Cascadia Code", "Consolas", monospace !important;
+}
+
+.md-header {
+  background: #0d0d0d !important;
+  border-bottom: 1px solid rgba(0,204,102,0.2);
+}
+
+.md-header__title .md-ellipsis {
+  color: var(--matrix) !important; font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+}
+.md-header__title .md-ellipsis::before { content: "> "; color: var(--matrix-bright); }
+.md-header__title .md-ellipsis::after { content: " _"; color: var(--matrix-bright); animation: blink 1s infinite; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.md-sidebar--primary {
+  background: #0d0d0d !important; border-right: 1px solid var(--border);
+}
+
+.md-nav__title { color: var(--matrix) !important; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; }
+.md-nav__link { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; transition: all 0.15s; }
+.md-nav__link:hover { background: rgba(0,204,102,0.08) !important; color: var(--matrix-bright) !important; }
+.md-nav__link--active { background: rgba(0,204,102,0.1) !important; color: var(--matrix) !important; border-left: 2px solid var(--matrix); }
+
+h1, h2, h3, h4, h5, h6 { font-family: "JetBrains Mono", monospace !important; }
+
+h1 { color: var(--matrix-bright) !important; font-weight: 700 !important;
+  border-bottom: 1px solid rgba(0,204,102,0.3); padding-bottom: 0.5rem; }
+h1::before { content: "## "; color: var(--matrix-dim); }
+h2 { color: var(--matrix) !important; font-weight: 700 !important; }
+h2::before { content: "# "; color: var(--matrix-dim); }
+h3 { color: var(--matrix-dim) !important; }
+h3::before { content: "> "; color: var(--matrix); }
+
+p, li, td, th { font-family: "JetBrains Mono", monospace; font-size: 0.85rem; }
+
+code {
+  background: rgba(0,204,102,0.1) !important; color: var(--matrix-bright) !important;
+  border: 1px solid rgba(0,204,102,0.2); border-radius: 2px; font-family: "JetBrains Mono", monospace;
+}
+pre {
+  background: #0d0d0d !important; border: 1px solid var(--border);
+  border-radius: 4px; font-family: "JetBrains Mono", monospace;
+}
+
+.md-typeset .admonition { border-radius: 4px; border-left-width: 3px; background: var(--bg-card) !important; }
+.md-typeset .admonition.note { border-left-color: var(--matrix); }
+
+.md-typeset table thead { background: rgba(0,204,102,0.06); }
+.md-typeset table th { color: var(--matrix) !important; font-weight: 600; }
+.md-typeset table tr:hover { background: rgba(0,204,102,0.03) !important; }
+
+.md-search__input {
+  background: #0d0d0d !important; border: 1px solid var(--border) !important;
+  border-radius: 2px !important; color: var(--text) !important; font-family: "JetBrains Mono", monospace;
+}
+.md-search__input:focus { border-color: var(--matrix) !important; }
+
+::-webkit-scrollbar-thumb { background: #1a1a1a; }
+::-webkit-scrollbar-thumb:hover { background: var(--matrix-dim); }
+
+blockquote { background: #0d0d0d; border-left: 2px solid var(--matrix) !important; }
+.md-footer { background: #0d0d0d !important; border-top: 1px solid var(--border); }
+.md-content__inner { animation: terminalType 0.3s ease; }
+@keyframes terminalType { from { opacity: 0; } to { opacity: 1; } }
