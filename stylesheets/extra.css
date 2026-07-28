@@ -560,3 +560,36 @@ body:has(.home-dashboard) .md-content__inner {
 .md-typeset .obsidian-callout-failure { --callout-color: 255, 85, 85; }
 .md-typeset .obsidian-callout-question { --callout-color: 241, 250, 140; }
 .md-typeset .obsidian-callout-example { --callout-color: 189, 147, 249; }
+/* ============================================
+   Article page width optimization
+   Make content pages use horizontal space like dashboard
+   ============================================ */
+.md-grid {
+  max-width: 96vw !important;
+}
+.md-main__inner {
+  margin-top: 0.8rem;
+}
+.md-content {
+  min-width: 0;
+}
+.md-content__inner {
+  margin-left: 1.2rem !important;
+  margin-right: 1.2rem !important;
+  padding-top: 1.0rem !important;
+}
+.md-sidebar--primary {
+  width: 13.5rem !important;
+}
+.md-sidebar--secondary {
+  width: 13rem !important;
+}
+@media (min-width: 1220px) {
+  .md-content__inner {
+    max-width: none !important;
+  }
+}
+@media (max-width: 960px) {
+  .md-grid { max-width: 100% !important; }
+  .md-content__inner { margin-left: .8rem !important; margin-right: .8rem !important; }
+}
