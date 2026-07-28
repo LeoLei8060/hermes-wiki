@@ -662,3 +662,71 @@ body:has(.home-dashboard) .md-content__inner {
   background: rgba(68, 71, 90, .9) !important;
   color: #ffb86c !important;
 }
+/* ============================================
+   Header/sidebar stable fix: fixed site title, dark nav headers, full sidebar scroll
+   ============================================ */
+
+/* 顶部标题：首页与内容页都只显示站点名，不显示当前文章标题 */
+.md-header__topic[data-md-component="header-topic"] {
+  display: none !important;
+}
+.md-header__topic:first-child,
+.md-header__title .md-header__topic:first-child {
+  display: block !important;
+}
+
+/* 内容页左右导航标题禁止白底，统一暗色 */
+.md-sidebar--primary .md-nav__title,
+.md-sidebar--secondary .md-nav__title,
+.md-nav__title {
+  background: #282a36 !important;
+  color: #bd93f9 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.md-sidebar--primary .md-nav__title a,
+.md-sidebar--secondary .md-nav__title a,
+.md-nav__title a {
+  color: #bd93f9 !important;
+}
+
+/* 左侧栏完整显示：恢复滚动高度，避免底部内容被截断 */
+@media (min-width: 960px) {
+  .md-sidebar--primary {
+    width: 17rem !important;
+    height: auto !important;
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    height: calc(100vh - 3.4rem) !important;
+    max-height: calc(100vh - 3.4rem) !important;
+    padding-bottom: 2.4rem !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  .md-sidebar--primary .md-nav,
+  .md-sidebar--primary .md-nav__list {
+    overflow-x: hidden !important;
+  }
+
+  /* 只保留单行省略，不再强行改行高/缩进/背景 */
+  .md-sidebar--primary .md-nav__link,
+  .md-sidebar--primary .md-nav__link .md-ellipsis,
+  .md-sidebar--secondary .md-nav__link,
+  .md-sidebar--secondary .md-nav__link .md-ellipsis {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* 当前页 label + a 重复时隐藏 label */
+  .md-sidebar--primary label.md-nav__link.md-nav__link--active[for="__toc"] {
+    display: none !important;
+  }
+
+  .md-sidebar--primary .md-nav__link--active,
+  .md-sidebar--primary .md-nav__item--active > .md-nav__link,
+  .md-sidebar--secondary .md-nav__link--active {
+    color: #ff79c6 !important;
+    background: transparent !important;
+  }
+}
