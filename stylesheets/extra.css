@@ -560,273 +560,69 @@ body:has(.home-dashboard) .md-content__inner {
 .md-typeset .obsidian-callout-failure { --callout-color: 255, 85, 85; }
 .md-typeset .obsidian-callout-question { --callout-color: 241, 250, 140; }
 .md-typeset .obsidian-callout-example { --callout-color: 189, 147, 249; }
+
 /* ============================================
-   Article page width optimization
-   Make content pages use horizontal space like dashboard
+   STABLE LAYOUT RESET
+   目标：恢复 Material 原生左侧导航结构，只做最小宽度/省略号控制；顶部标题固定站点名。
    ============================================ */
-.md-grid {
-  max-width: 96vw !important;
+
+/* 1) 顶部标题固定为站点名：隐藏 Material 自动切换的当前页面标题 */
+.md-header__topic[data-md-component="header-topic"] {
+  display: none !important;
 }
-.md-main__inner {
-  margin-top: 0.8rem;
+.md-header__topic:first-child {
+  display: block !important;
 }
-.md-content {
-  min-width: 0;
-}
-.md-content__inner {
-  margin-left: 1.2rem !important;
-  margin-right: 1.2rem !important;
-  padding-top: 1.0rem !important;
-}
-.md-sidebar--primary {
-  width: 13.5rem !important;
-}
-.md-sidebar--secondary {
-  width: 13rem !important;
-}
-@media (min-width: 1220px) {
+
+/* 2) 内容页横向空间：保留宽屏，但不破坏导航结构 */
+@media (min-width: 960px) {
+  .md-grid {
+    max-width: 96vw !important;
+  }
   .md-content__inner {
+    margin-left: 1.1rem !important;
+    margin-right: 1.1rem !important;
     max-width: none !important;
   }
-}
-@media (max-width: 960px) {
-  .md-grid { max-width: 100% !important; }
-  .md-content__inner { margin-left: .8rem !important; margin-right: .8rem !important; }
-}
-/* ============================================
-   Left navigation no-wrap and wider sidebar
-   ============================================ */
-@media (min-width: 960px) {
   .md-sidebar--primary {
-    width: 15.5rem !important;
-  }
-  .md-sidebar--primary .md-sidebar__scrollwrap {
-    width: 15.5rem !important;
-  }
-  .md-nav--primary .md-nav__link,
-  .md-nav--primary .md-nav__item .md-nav__link,
-  .md-sidebar--primary .md-nav__link {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    display: block !important;
-    max-width: 100% !important;
-    line-height: 1.45 !important;
-  }
-  .md-nav--primary .md-nav__link .md-ellipsis,
-  .md-sidebar--primary .md-nav__link .md-ellipsis {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    display: block !important;
-  }
-  .md-sidebar--primary .md-nav__item {
-    min-width: 0 !important;
-  }
-}
-
-/* ============================================
-   Material primary nav compact + no duplicate active label
-   ============================================ */
-@media (min-width: 960px) {
-  .md-sidebar--primary,
-  .md-sidebar--primary .md-sidebar__scrollwrap,
-  .md-sidebar--primary .md-nav {
     width: 17rem !important;
   }
-
-  /* 顶部知识库标题区域：压缩标题下方空白 */
-  .md-sidebar--primary .md-nav__title {
-    margin-bottom: .1rem !important;
-    padding: .35rem .6rem .3rem .6rem !important;
-    line-height: 1.2 !important;
-    min-height: auto !important;
-    height: auto !important;
-    color: #bd93f9 !important;
+  .md-sidebar--secondary {
+    width: 13rem !important;
   }
-  .md-sidebar--primary .md-nav__button.md-logo {
-    display: none !important;
+}
+
+/* 3) 左侧导航：恢复 Material 原生行高/层级，只控制单行省略与不横向滚动 */
+@media (min-width: 960px) {
+  .md-sidebar--primary,
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    overflow-x: hidden !important;
   }
   .md-sidebar--primary .md-nav__source {
     display: none !important;
   }
-  .md-sidebar--primary .md-nav__list {
-    padding-top: .05rem !important;
-  }
-
-  /* 当前页会生成 label + a 两份 active 链接；隐藏 label，避免选中行显示两次 */
-  .md-sidebar--primary label.md-nav__link.md-nav__link--active[for="__toc"] {
-    display: none !important;
-  }
-
-  /* 恢复为接近 Material 原生的 block 布局，不再用 flex 破坏层级 */
-  .md-sidebar--primary .md-nav__item {
-    margin: 0 !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-  .md-sidebar--primary .md-nav__link {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: calc(17rem - 1.25rem) !important;
-    max-width: calc(17rem - 1.25rem) !important;
-    min-width: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: .22rem !important;
-    padding-bottom: .22rem !important;
-    padding-left: .55rem !important;
-    padding-right: .55rem !important;
-    line-height: 1.25 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-  .md-sidebar--primary .md-nav__link > .md-ellipsis,
-  .md-sidebar--primary .md-nav__link .md-ellipsis {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    line-height: 1.25 !important;
-  }
-
-  /* 嵌套层级稍微保留缩进，但不让文本宽度沿用旧宽度 */
-  .md-sidebar--primary .md-nav .md-nav {
-    padding-left: .45rem !important;
-  }
-  .md-sidebar--primary .md-nav .md-nav .md-nav__link {
-    width: calc(17rem - 1.7rem) !important;
-    max-width: calc(17rem - 1.7rem) !important;
-  }
-  .md-sidebar--primary .md-nav .md-nav .md-nav .md-nav__link {
-    width: calc(17rem - 2.15rem) !important;
-    max-width: calc(17rem - 2.15rem) !important;
-  }
-
-  /* 折叠箭头不参与换行 */
-  .md-sidebar--primary .md-nav__icon {
-    float: right !important;
-    margin-left: .25rem !important;
-  }
-}
-/* ============================================
-   FINAL FIX: simple primary navigation + restored dark tables
-   - no card/table-like effects in left nav
-   - uniform row height
-   - active row only changes font color
-   - no horizontal scrollbar
-   - restore dark table readability
-   ============================================ */
-@media (min-width: 960px) {
-  .md-sidebar--primary {
-    width: 17rem !important;
-    overflow-x: hidden !important;
-  }
-  .md-sidebar--primary .md-sidebar__scrollwrap,
-  .md-sidebar--primary .md-nav,
-  .md-sidebar--primary .md-nav__list {
-    width: 17rem !important;
-    max-width: 17rem !important;
-    overflow-x: hidden !important;
-  }
-
-  .md-sidebar--primary .md-nav__source,
-  .md-sidebar--primary .md-nav__button.md-logo {
-    display: none !important;
-  }
-
-  .md-sidebar--primary .md-nav__title {
-    color: #bd93f9 !important;
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    margin: 0 0 .2rem 0 !important;
-    padding: .45rem .75rem .35rem .75rem !important;
-    min-height: unset !important;
-    height: auto !important;
-    line-height: 1.25 !important;
-  }
-
-  /* Material 当前页会生成 label + a 两份 active，隐藏 label 防止重复行 */
-  .md-sidebar--primary label.md-nav__link.md-nav__link--active[for="__toc"] {
-    display: none !important;
-  }
-
-  .md-sidebar--primary .md-nav__item {
-    margin: 0 !important;
-    padding: 0 !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-  }
-
   .md-sidebar--primary .md-nav__link,
-  .md-sidebar--primary label.md-nav__link,
-  .md-sidebar--primary a.md-nav__link {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 1.78rem !important;
-    min-height: 1.78rem !important;
-    margin: 0 !important;
-    padding: 0 .7rem !important;
-    line-height: 1.78rem !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    background: transparent !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-
-  .md-sidebar--primary .md-nav__link > .md-ellipsis,
   .md-sidebar--primary .md-nav__link .md-ellipsis {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: 1.78rem !important;
-    line-height: 1.78rem !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+    max-width: 100% !important;
   }
-
-  /* 保留层级缩进，但不改变行高，也不产生水平滚动 */
-  .md-sidebar--primary .md-nav .md-nav {
-    padding-left: .55rem !important;
-    margin-left: 0 !important;
-    overflow-x: hidden !important;
+  /* 当前页 Material 会生成 label + a 两个 active；隐藏 label，避免重复显示 */
+  .md-sidebar--primary label.md-nav__link.md-nav__link--active[for="__toc"] {
+    display: none !important;
   }
-  .md-sidebar--primary .md-nav .md-nav .md-nav {
-    padding-left: .55rem !important;
-  }
-
-  /* 选中态：只高亮字体，不做背景块 */
-  .md-sidebar--primary .md-nav__item--active > .md-nav__link,
+  /* 选中项只改变字体颜色，不加背景块、不改行高 */
   .md-sidebar--primary .md-nav__link--active,
-  .md-sidebar--primary .md-nav__link:hover {
+  .md-sidebar--primary .md-nav__item--active > .md-nav__link {
     color: #ff79c6 !important;
     background: transparent !important;
-    border: 0 !important;
     box-shadow: none !important;
-  }
-
-  .md-sidebar--primary .md-nav__icon {
-    float: right !important;
-    margin: 0 !important;
-    height: 1.78rem !important;
-    line-height: 1.78rem !important;
+    border: 0 !important;
   }
 }
 
-/* Restore normal dark document tables */
+/* 4) 表格恢复暗色文档表格，避免白底异常 */
 .md-typeset table:not([class]),
 .md-typeset table {
   background: #282a36 !important;
