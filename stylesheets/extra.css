@@ -624,3 +624,69 @@ body:has(.home-dashboard) .md-content__inner {
     min-width: 0 !important;
   }
 }
+/* ============================================
+   Material primary nav exact fix: width, spacing, single-line ellipsis
+   ============================================ */
+@media (min-width: 960px) {
+  .md-sidebar--primary,
+  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--primary .md-nav {
+    width: 17rem !important;
+  }
+  .md-sidebar--primary .md-nav__title {
+    margin-bottom: .25rem !important;
+    padding-top: .45rem !important;
+    padding-bottom: .45rem !important;
+    line-height: 1.25 !important;
+    height: auto !important;
+    color: #bd93f9 !important;
+  }
+  .md-sidebar--primary .md-nav__source {
+    display: none !important;
+  }
+  .md-sidebar--primary .md-nav__list {
+    padding-top: .15rem !important;
+  }
+  .md-sidebar--primary .md-nav__item {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .md-sidebar--primary .md-nav__link {
+    min-width: 0 !important;
+    max-width: calc(17rem - 1.6rem) !important;
+    width: calc(17rem - 1.6rem) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: .25rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.35 !important;
+    padding-top: .36rem !important;
+    padding-bottom: .36rem !important;
+  }
+  .md-sidebar--primary .md-nav__link > .md-ellipsis,
+  .md-sidebar--primary .md-nav__link .md-ellipsis {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.35 !important;
+  }
+  .md-sidebar--primary label.md-nav__link .md-ellipsis {
+    max-width: calc(17rem - 3.0rem) !important;
+  }
+  .md-sidebar--primary .md-nav__item--active > .md-nav__link,
+  .md-sidebar--primary .md-nav__link--active {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .md-sidebar--primary .md-nav__icon {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+}
