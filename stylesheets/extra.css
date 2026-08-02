@@ -601,12 +601,18 @@ body:has(.home-dashboard) .md-content__inner {
   .md-sidebar--primary .md-nav__source {
     display: none !important;
   }
-  .md-sidebar--primary .md-nav__link,
+  .md-sidebar--primary .md-nav__link {
+    display: flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+  }
   .md-sidebar--primary .md-nav__link .md-ellipsis {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    max-width: 100% !important;
   }
   /* 当前页 Material 会生成 label + a 两个 active；隐藏 label，避免重复显示 */
   .md-sidebar--primary label.md-nav__link.md-nav__link--active[for="__toc"] {
@@ -710,9 +716,16 @@ body:has(.home-dashboard) .md-content__inner {
 
   /* 只保留单行省略，不再强行改行高/缩进/背景 */
   .md-sidebar--primary .md-nav__link,
+  .md-sidebar--secondary .md-nav__link {
+    display: flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+  }
   .md-sidebar--primary .md-nav__link .md-ellipsis,
-  .md-sidebar--secondary .md-nav__link,
   .md-sidebar--secondary .md-nav__link .md-ellipsis {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
