@@ -590,6 +590,16 @@ body:has(.home-dashboard) .md-content__inner {
   .md-sidebar--secondary {
     width: 13rem !important;
   }
+  /* Material 原生用 calc(100% - 11.5rem) 把内容宽度钉死在 11.5rem；
+     加宽 sidebar 后必须同步重算 inner padding，否则文本区宽度不对齐 */
+  .md-sidebar--primary .md-sidebar__inner {
+    padding-right: calc(100% - 16.4rem) !important;
+    padding-left: calc(100% - 16.4rem) !important;
+  }
+  .md-sidebar--secondary .md-sidebar__inner {
+    padding-right: calc(100% - 12.4rem) !important;
+    padding-left: calc(100% - 12.4rem) !important;
+  }
 }
 
 /* 3) 左侧导航：恢复 Material 原生行高/层级，只控制单行省略与不横向滚动 */
